@@ -174,13 +174,16 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
 	  HCSR04_Read();
+	  lcd_put_cur(0, 0x06);
 	  lcd_send_data((Distance/100) + 48);   // 100th pos
+	  lcd_put_cur(0, 0x07);
 	  lcd_send_data(((Distance/10)%10) +48);  // 10th pos
+	  lcd_put_cur(0, 0x08);
 	  lcd_send_data((Distance%10)+48);  // 1st pos
+	  lcd_put_cur(0, 0x09);
 	  lcd_send_string(" cm");
-	  HAL_Delay(2000);
+	  HAL_Delay(1000);
 
   }
   /* USER CODE END 3 */
